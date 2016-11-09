@@ -1,0 +1,10 @@
+<h1>Jewelry Shop</h1>
+<div class="page col-sm-12">
+  
+    <% @items.each do |item| %>
+      <div class="col-sm-4">
+        <h4><%= item.metal %> <%= item.gemstone %> <%= item.kind %></h4>
+        <p><%= item.price %></p>
+      </div>
+    <% end %>
+</div>
