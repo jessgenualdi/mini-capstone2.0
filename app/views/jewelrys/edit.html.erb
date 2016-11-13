@@ -1,0 +1,21 @@
+
+<h1>Edit Jewelry</h1>
+<%= form_tag "/jewelry/#{@jewelry.id}", method: :patch do %>
+  <div class="form-group">
+    <%= label_tag :metal %>
+    <%= text_field_tag :metal, @jewelry.metal, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :gemstone %>
+    <%= text_field_tag :gemstone, @jewelry.gemstone, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :kind %>
+    <%= text_field_tag :kind, @jewelry.kind, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :price %>
+    <%= text_field_tag :price, @jewelry.price, class: 'form-control' %>
+  </div>
+  <%= submit_tag "Edit Jewelry", class: "btn btn-primary" %>
+<% end %>

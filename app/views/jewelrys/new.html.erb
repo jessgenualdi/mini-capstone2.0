@@ -1,0 +1,24 @@
+<h3>New Jewelry</h3>
+<%= form_tag '/jewelry', method: :post do %>
+  <div>
+    <%= label_tag :metal %>
+    <%= text_field_tag :metal %>
+  </div>
+  <div>
+    <%= label_tag :kind %>
+    <%= text_field_tag :kind %>
+  </div>
+  <div>
+    <%= label_tag :gemstone %>
+    <%= text_field_tag :gemstone %>
+  </div>
+  <div>
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+  </div>
+  <div>
+    <%= label_tag :image %>
+    <%= text_field_tag :image %>
+  </div>
+  <%= submit_tag 'Add Jewelry' %>
+  <% end %>
