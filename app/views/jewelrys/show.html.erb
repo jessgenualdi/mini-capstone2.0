@@ -1,9 +1,9 @@
 <h3>Jewelry information</h3>
-<h5><%= @jewelry.metal %> <%= @jewelry.gemstone %> <%= @jewelry.kind %></h5>
+<div class=""><h5><%= @jewelry.metal %> <%= @jewelry.gemstone %> <%= @jewelry.kind %></h5>
 <img src="<%= @jewelry.image %>" />
 <h6><%= @jewelry.price %></h6>
-<a href="/jewelry_store">Back to Jewelry Store</a>
-<a href="/jewelry/:id/edit">edit</a>
+<div><a href="/jewelry_store">Back to Jewelry Store</a></div>
+<div><a href="/jewelry/<%=@jewelry.id%>/edit">edit</a></div>
 <div>
   <%= link_to "Destroy this item", "/jewelry/#{@jewelry.id}", method: :delete %>
 </div>

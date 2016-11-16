@@ -1,3 +1,27 @@
 // Place all the styles related to the jewelrys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  padding: 30px;
+  width:100%;
+  text-align: center;
+  background-image: url('pink_rice.png')
+}
+ 
+img {
+  width:150px;
+  padding: 20px 0;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 20px 0 60px;
+}
+
+h4 {
+  text-transform: capitalize;
+}
+
+.product {
+  height:400px;
+}

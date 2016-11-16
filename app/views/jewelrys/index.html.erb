@@ -1,8 +1,7 @@
 <h1>Jewelry Shop</h1>
 <div class="page col-sm-12">
-  
     <% @jewelry.each do |item| %>
-      <div class="col-sm-4">
+      <div class="product col-sm-4">
         <h4><%= item.metal %> <%= item.gemstone %> <%= item.kind %></h4>
         <img src="<%=item.image%>"/>
         <p><%= item.price %></p>

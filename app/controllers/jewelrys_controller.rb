@@ -44,11 +44,15 @@ class JewelrysController < ApplicationController
     jewelry.kind = params[:kind]
     jewelry.price = params[:price]
     jewelry.save
-    render 'update.html.erb'
+    flash[:success] = "Jewelry successfully updated!"
+    redirect_to "/jewelry/#{jewelry.id}"
   end
 
-  def delete
-
+  def destroy
+    jewelry = Jewelry.find_by(id: params[:id])
+    jewelry.destroy
+    flash[:success] = "Jewelry successfully destroyed!"
+    redirect_to "/jewelry_store"
   end
 
 end

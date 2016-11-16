@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get '/jewelry/:id' => 'jewelrys#show'
   get '/jewelry/:id/edit' => 'jewelrys#edit'
   patch '/jewelry/:id' => 'jewelrys#update'
-  delete '/jewelry/:id' => 'jewelry#destroy'
+  delete '/jewelry/:id' => 'jewelrys#destroy'
 end
