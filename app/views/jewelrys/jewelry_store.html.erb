@@ -1,12 +1,17 @@
 <h1>Jewelry Shop</h1>
-<div class="page col-sm-12">
-    <% @items.each do |item| %>
-      <div class="col-sm-4">
-        <a href="/jewelry/<%= item.id %>">
-          <h4><%= item.metal %> <%= item.gemstone %> <%= item.kind %></h4>
-          <img src="<%=item.image%>"/>
-          <p><%= item.price %></p>
-        </a>
+<div class="container">
+  <div class="page col-sm-12">
+      <% @items.each do |item| %>
+        <div class="col-sm-4 product">
+          <a href="/jewelry/<%= item.id %>">
+            <h4><%= item.metal %> <%= item.gemstone %> <%= item.kind %></h4>
+            <img src="<%=item.image%>"/>
+            <p><%= item.price %></p>
+          </a>
+        </div>
+      <%end%>
+      <div>
+        <a href="/jewelry/new">Add Jewelry</a>
       </div>
-    <%end%>
+  </div>
 </div>

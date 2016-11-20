@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  padding: 30px;
+  font-family: "Gill Sans","Gill Sans MT",Calibri,sans-serif;
   width:100%;
   text-align: center;
-  background-image: url('pink_rice.png')
+  background-image: url('symphony.png')
 }
  
 img {
@@ -23,5 +23,5 @@ h4 {
 }
 
 .product {
-  height:400px;
+  height:300px;
 }

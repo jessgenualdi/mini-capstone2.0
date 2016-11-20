@@ -18,7 +18,8 @@ class JewelrysController < ApplicationController
       metal: params["metal"],
       kind: params["kind"],
       gemstone: params["gemstone"],
-      price: params["price"]    
+      price: params["price"], 
+      image: params["image"]    
       )
     jewelry.save
     render 'create.html.erb'

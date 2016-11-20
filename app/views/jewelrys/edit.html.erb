@@ -17,5 +17,9 @@
     <%= label_tag :price %>
     <%= text_field_tag :price, @jewelry.price, class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= label_tag :image %>
+    <%= text_field_tag :image, @jewelry.image, class: 'form-control' %>
+  </div>
   <%= submit_tag "Edit Jewelry", class: "btn btn-primary" %>
 <% end %>
