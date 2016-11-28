@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   get '/jewelry/:id/edit' => 'jewelrys#edit'
   patch '/jewelry/:id' => 'jewelrys#update'
   delete '/jewelry/:id' => 'jewelrys#destroy'
+
+  get '/supplier' => 'suppliers#index'
+
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
 end

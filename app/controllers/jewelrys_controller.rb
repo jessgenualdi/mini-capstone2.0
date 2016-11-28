@@ -1,11 +1,26 @@
 class JewelrysController < ApplicationController
   def jewelry_method
-    @items = Jewelry.all
+    sort_attribute = params[:sort]
+    discount = params[:discount]
+    random = params[:random]
+
+    if sort_attribute
+      @items = Jewelry.order(sort_attribute)
+    elsif discount
+      @items = Jewelry.where("price < ?",  90)
+    elsif random
+      @random_items = Jewelry.all
+      @items.rand(@random_items.length)
+    else
+      @items = Jewelry.all
+    end
+
     render 'jewelry_store.html.erb'
   end
 
   def index
-    @jewelry = Jewelry.all
+    sort_attribute = params[:sort]
+    @jewelry = Jewelry.order(sort_attribute)
     render 'index.html.erb'
   end
 
@@ -55,5 +70,7 @@ class JewelrysController < ApplicationController
     flash[:success] = "Jewelry successfully destroyed!"
     redirect_to "/jewelry_store"
   end
+
+
 
 end

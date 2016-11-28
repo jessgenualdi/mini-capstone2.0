@@ -1,4 +1,6 @@
 class Jewelry < ApplicationRecord
+  belongs_to :supplier
+  has_many :images
   def sale_message
     price = price.to_i
     if price > 200
@@ -15,4 +17,6 @@ class Jewelry < ApplicationRecord
   def total
     price.to_f + tax_method
   end
+
+  
 end

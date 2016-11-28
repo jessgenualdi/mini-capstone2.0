@@ -1,6 +1,7 @@
 <h3>Jewelry information</h3>
 <div class=""><h5><%= @jewelry.metal %> <%= @jewelry.gemstone %> <%= @jewelry.kind %></h5>
-<img src="<%= @jewelry.image %>" />
+<img src="<%= @jewelry.images.name %>" />
+<h6>from: <%= @jewelry.supplier.name %></h6>
 <h6>price: <%= @jewelry.price %></h6>
 <h6>tax: <%= @jewelry.tax_method %></h6>
 <h6>totes: <%= @jewelry.total %></h6>
