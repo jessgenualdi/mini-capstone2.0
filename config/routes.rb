@@ -11,8 +11,18 @@ Rails.application.routes.draw do
 
   get '/supplier' => 'suppliers#index'
 
-
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+
+  post '/orders' => 'orders#create'
+  get '/orders/:id' => 'orders#show'
+
+  get '/cart' => 'carted_jewelries#index'
+  post '/cart' => 'carted_jewelries#create'
+
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
 end

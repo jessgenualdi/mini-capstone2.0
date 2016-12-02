@@ -1,6 +1,10 @@
 class Jewelry < ApplicationRecord
   belongs_to :supplier
+  has_many :category_jewelries
+  has_many :jewelries, through: :category_jewelries
   has_many :images
+  has_many :carted_jewelries
+  has_many :orders, through: :carted_jewelries
   def sale_message
     price = price.to_i
     if price > 200
@@ -11,12 +15,10 @@ class Jewelry < ApplicationRecord
   end
 
   def tax_method
-   price.to_f * 0.09
+    price.to_f * 0.09
   end 
 
   def total
     price.to_f + tax_method
   end
-
-  
 end

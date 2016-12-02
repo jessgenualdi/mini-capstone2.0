@@ -1,0 +1,14 @@
+<h1>Your Cart</h1>
+<h4>
+You are ordering <%= @order.quantity %> of these things
+</h4>
+
+
+<% carted_jewelrys.each do |carted_jewelry| %>
+  <h2> <%= carted_jewelry.jewerly.metal %> <%= carted_jewelry.jewerly.gemstone %> <%= carted_jewelry.jewerly.kind %> </h2>
+  <h3><%= carted_jewelry.jewerly.price %></h3>
+<% end  %>
+
+<h5>
+  <%= number_to_currency(@order.total) %>
+</h5>

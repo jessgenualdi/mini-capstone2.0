@@ -1,4 +1,6 @@
 class JewelrysController < ApplicationController
+  before_action :authenticate_admin!, except:[:jewelry_method, :show, :search]
+
   def jewelry_method
     sort_attribute = params[:sort]
     discount = params[:discount]
@@ -70,7 +72,5 @@ class JewelrysController < ApplicationController
     flash[:success] = "Jewelry successfully destroyed!"
     redirect_to "/jewelry_store"
   end
-
-
 
 end

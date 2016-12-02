@@ -1,15 +1,30 @@
 <h3>Jewelry information</h3>
-<div class=""><h5><%= @jewelry.metal %> <%= @jewelry.gemstone %> <%= @jewelry.kind %></h5>
-<img src="<%= @jewelry.images.name %>" />
+<div class="">
+<h5><%= @jewelry.metal %> <%= @jewelry.gemstone %> <%= @jewelry.kind %></h5>
+<% @jewelry.images.each do |image| %>
+  <img src="<%=image.url%>"/>
+<% end %>
 <h6>from: <%= @jewelry.supplier.name %></h6>
 <h6>price: <%= @jewelry.price %></h6>
 <h6>tax: <%= @jewelry.tax_method %></h6>
 <h6>totes: <%= @jewelry.total %></h6>
+  <div><a href="/jewelry_store">Back to Jewelry Store</a></div>
 
-<div><a href="/jewelry_store">Back to Jewelry Store</a></div>
-<div><a href="/jewelry/<%=@jewelry.id%>/edit">edit</a></div>
-<div>
-  <%= link_to "Destroy this item", "/jewelry/#{@jewelry.id}", method: :delete %>
-</div>
+<% if current_user && current_user.admin %>
+  <div><a href="/jewelry/<%=@jewelry.id%>/edit">edit</a></div>
+  <div> <%= link_to "Edit", "/jewelry/#{@jewelry.id}/edit" %></div>
+  <div> <%= link_to "Destroy this item", "/jewelry/#{@jewelry.id}", method: :delete %> </div>
+<% end %>
 
 <h3><%= @jewelry.sale_message %></h3>
+
+ <%= form_tag "/cart", method: :post do %>
+   <div>
+     <%= label_tag :quantity %>
+     <%= text_field_tag :quantity %>
+   </div>
+   <div>
+     <%= hidden_field_tag :jewelry_id, @jewelry.id %>
+   </div>
+   <%= submit_tag "Add to Cart" %>
+ <% end %>
