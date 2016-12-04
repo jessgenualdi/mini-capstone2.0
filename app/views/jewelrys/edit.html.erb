@@ -1,5 +1,14 @@
 
 <h1>Edit Jewelry</h1>
+<% if @jewelry.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @jewelry.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_tag "/jewelry/#{@jewelry.id}", method: :patch do %>
   <div class="form-group">
     <%= label_tag :metal %>

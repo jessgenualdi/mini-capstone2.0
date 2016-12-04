@@ -1,4 +1,17 @@
 <h3>New Jewelry</h3>
+
+<% if @jewelry.errors.any? %>
+  <div id="error_explanation">
+   <h2><%= pluralize(@jewelry.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <ul>
+    <% @jewelry.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+ 
+
 <%= form_tag '/jewelry', method: :post do %>
   <div>
     <%= label_tag :metal %>

@@ -5,6 +5,12 @@ class Jewelry < ApplicationRecord
   has_many :images
   has_many :carted_jewelries
   has_many :orders, through: :carted_jewelries
+
+  validates :kind, presence: true
+  validates :gemstone, presence: true
+  validates :metal, presence: true
+  validates :price, numericality: true
+  
   def sale_message
     price = price.to_i
     if price > 200

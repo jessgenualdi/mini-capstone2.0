@@ -27,6 +27,7 @@ class JewelrysController < ApplicationController
   end
 
   def new
+    @jewelry = Jewelry.new
     render 'new.html.erb'
   end
 
@@ -38,8 +39,12 @@ class JewelrysController < ApplicationController
       price: params["price"], 
       image: params["image"]    
       )
-    jewelry.save
-    render 'create.html.erb'
+
+    if jewelry.save 
+      render 'jewelry_store.html.erb'
+    else
+      render 'new.html.erb'
+    end
   end
 
   def show
@@ -55,15 +60,20 @@ class JewelrysController < ApplicationController
   end
 
   def update
+
     jewelry_id = params[:id]
-    jewelry = Jewelry.find_by(id: jewelry_id)
-    jewelry.metal = params[:metal]
-    jewelry.gemstone = params[:gemstone]
-    jewelry.kind = params[:kind]
-    jewelry.price = params[:price]
-    jewelry.save
-    flash[:success] = "Jewelry successfully updated!"
-    redirect_to "/jewelry/#{jewelry.id}"
+    @jewelry = Jewelry.find_by(id: jewelry_id)
+    @jewelry.metal = params[:metal]
+    @jewelry.gemstone = params[:gemstone]
+    @jewelry.kind = params[:kind]
+    @jewelry.price = params[:price]
+
+    if @jewelry.save
+      flash[:success] = "Jewelry successfully updated!"
+      redirect_to "/jewelry/#{jewelry.id}"
+    else
+      render 'edit.html.erb'  
+    end
   end
 
   def destroy
